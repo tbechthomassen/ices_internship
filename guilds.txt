@@ -1,0 +1,99 @@
+scientific name, common name, feeding guild,size guild, note
+Ciliata septentrionalis,Northern rockling,Demersal Piscivore,medium Demersal
+Enchelyopus cimbrius,Four-bearded rockling,Demersal Piscivore,medium Demersal
+Gaidropsarus vulgaris,Three-bearded rockling,Demersal Piscivore,medium Demersal
+Molva molva,Ling,Demersal Piscivore,large dermersal
+Molva dypterygia,Blue ling,Demersal Piscivore, medium Demersal
+Merluccius merluccius,Hake,Demersal Piscivore,medium Demersal
+Zoarces viviparus,Viviparous blenny,Demersal Benthivore,medium Demersal
+Sebastes marinus,Red-fish,Demersal Piscivore, medium Demersal
+Sebastes viviparus,Norway haddock,Demersal Piscivore, medium Demersal
+Trigla lucerna,Tub gurnard,Demersal Piscivore, medium Demersal
+Eutrigla gurnardus,Grey gurnard,Demersal Piscivore, medium Demersal
+Trigloporus lastoviza,Streaked gurnard,Demersal Benthivore, medium Demersal
+Myoxocephalus scorpius,Bull-rout,Demersal Benthivore, medium Demersal
+Taurulus bubalis,Sea-scorpion,Demersal	Benthivore, medium Demersal
+Agonus cataphractus,Hooknose,Demersal Benthivore, medium Demersal
+Cyclopterus lumpus,Lumpsucker,Demersal Benthivore, medium Demersal
+Liparis liparis,Sea-snail,Demersal Benthivore,small Demersal
+Trachurus trachurus,Horse mackerel,Pelagic Piscivore,small Pelagic
+Echiichthys vipera,Lesser weever,Demersal Benthivore,small Demersal
+Trachinus draco,Greater weever,Demersal Benthivore,medium Demersal
+Anarhichas minor,Spotted catfish,Demersal Benthivore,large Demersal
+Lumpenus lampretaeformis,Snake blenny,Demersal Benthivore,medium Demersal
+Pholis gunnellus,Butterfish,Demersal Benthivore,small Demersal
+Ammodytes tobianus,Sandeel,Pelagic Planktivore,small Pelagic
+Callionymidae,Dragonet,Demersal Benthivore,small Demersal
+Gobiidae,Gobies,Demersal Benthivore,small Demersal
+Scomber scomber,Mackerel,Pelagic Piscivore, medium Pelagic
+Scophthalmus rhombus,Brill,Demersal Piscivore,medium Demersal
+Scophthalmus maximus,Turbot,Demersal Piscivore,large Demersal
+Lepidorhombus whiffiagonis,Megrim,Demersal Piscivore,medium Demersal
+Arnoglossus laterna,Scaldfish,Demersal Benthivore,small Demersal
+Pleuronectes platessa,Plaice,Demersal Benthivore,large Demersal
+Platichthys flesus,Flounder,Demersal Benthivore,medium Demersal
+Limanda limanda,Dab,Demersal Benthivore,medium Demersal
+Microstomus kitt,Lemon sole,Demersal Benthivore,medium Demersal
+Glyptocephalus cynoglossus,Witch,Demersal Benthivore,medium Demersal
+Hippoglossides platessoides,Long rough dab,Demersal Benthivore,medium Demersal
+Hippoglossus hippoglossus,Halibut,Demersal Benthivore,large Demersal
+Solea solea,Sole,Demersal Benthivore,medium Demersal
+Buglossidium luteum,Solenette,Demersal Benthivore,small Demersal
+Scyliorhinus caniculus,Dogfish,Demersal Piscivore,large Demersal
+Galeus melastomus,Black-mouthed Dogfish,Demersal Piscivore,medium Demersal
+Galeorhinus galeus,Tope,Demersal Piscivore,large benthoPelagic
+Mustelus mustelus,Smooth hound,Demersal Piscivore,large Demersal
+Squalus acanthias,Spurdog,Demersal Piscivore,large benthoPelagic
+Etmopterus spinax,Velvet belly,Demersal Piscivore,medium bathyDemersal
+Raja brachyura,Blonde ray,Demersal Benthivore,large Demersal
+Raja clavata,Roker,Demersal Benthivore,large Demersal
+Raja montagui,Spotted ray,Demersal Benthivore,medium Demersal
+Raja radiata,Starry ray,Demersal Piscivore,large Demersal
+Raja batis,Skate,Demersal Benthivore,large Demersal
+Raja fullonica,Shagreen ray,Demersal Benthivore,large bathyDemersal
+Raja circularis,Sandy ray,Demersal Benthivore,large Demersal
+Raja naevus,Cuckoo ray,Demersal Benthivore,medium Demersal
+Chimaera monstrosa,Rat fish,Demersal Piscivore,large bathyDemersal
+Clupea harengus,Herring,Pelagic Planktivore,medium Pelagic
+Sprattus sprattus,Sprat,Pelagic Planktivore,small Pelagic
+Alosa alosa,Allis shad,Pelagic Planktivore,small Pelagic
+Salmo trutta,Sea-trout,Demersal Piscivore,large Pelagic
+Argentina sphyraena,Argentine,Pelagic Planktivore,medium bathyPelagic
+Argentina silus,Greater argentine,Pelagic Planktivore,medium bathyDemersal
+Lophius piscatorius,Angler,Demersal Piscivore,large bathyDemersal
+Gadus morhua,Cod,Demersal Piscivore,large benthoPelagic
+Gadiculus argenteus,Silvery pout,Pelagic Planktivore,small Pelagic
+Melanogrammus aeglefinus,Haddock,Demersal Piscivore,large Demersal
+Merlangius merlangus,Whiting,Demersal Piscivore,medium benthoPelagic
+Trisopterus minutus,Poor cod,Demersal Piscivore,medium benthoPelagic
+Micromesistius poutassou,Blue whiting,Pelagic Planktivore,medium bathyPelagic
+Trisopterus luscus,Bib Demersal,Piscivore,medium benthoPelagic
+Trisopterus esmarki,Norway pout,Pelagic Planktivore,medium benthoPelagic
+Pollachius pollachius,Pollock,Demersal Piscivore,large benthoPelagic
+Pollachius virens,Saithe,Demersal Piscivore,large Demersal
+Brosme brosme,Torsk,Demersal Piscivore,large Demersal
+Other, other, NA, NA,*
+Pleuronectiformes, flatfishes, flatfish, flatfish,**
+Psetta maxima, Turbot, Demersal Piscivore,large Demersal,*
+Sander lucioperca, pike-perch, Pelagic Piscivore,large Pelagic,**
+Salmo salar, Salmon, Pelagic Piscivore,large benthoPelagic,**
+Lycodes spp, eelpouts, Demersal Benthivore,medium Demersal,**
+Crangon crangon, common shrimp, crustacean,shrimp,**
+Perca fluviatilis, European perch, Pelagic Piscivore,medium Demersal,**
+Esox lucius, Northern pike, Demersal Piscivore,large Demersal,**
+Scomber scombrus,Mackerel,Pelagic Piscivore,medium Pelagic,*
+Anarhichas spp, Wolffishes, Demersal Benthivore,large Demersal,*
+Ammodytes spp, Sandeels, Pelagic Planktivore,small Pelagic,*
+Nephrops norvegicus, norwegian lobster, crustacean,crustacean,**
+Cancer pagurus, edible crab, crustacean,crustacean,**
+Dicentrarchus labrax, European seabass, Demersal Piscivore,large Demersal,**
+Engraulis encrasicolus, european anchovy, Pelagic Planktivore,small Pelagic,**
+Hippoglossoides platessoides,Long rough dab,Demersal Benthivore,medium Demersal,*
+Lamna nasus, Porbeagle, Pelagic Piscivore,large Pelagic,**
+Lepidorhombus spp,Megrims,Demersal Piscivore,medium bathydemersal,*
+Lophiidae,anglerfishes, Demersal Piscivore,large Demersal,**
+Pandalus borealis, northern prawn, crustacean,shrimp,**
+Rajidae, Rays and skates, Demersal Benthivore,Demersal,**
+Reinhardtius hippoglossoides,Greenland halibut,Pelagic Piscivore,large benthopelagic,**
+Sebastes spp, Red-fish,Demersal Piscivore, medium Pelagic,*
+Trachurus spp, jack and horse mackerel, Pelagic Piscivore, small Pelagic,*
