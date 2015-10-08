@@ -1,6 +1,6 @@
 
-#LOAD NEEDED LIBS+PACKAGAGES
-#install.packages("ggplot2") #remember to uncomment at first run - this needs to automated. R (base?) can do that.
+# LOAD NEEDED LIBS+PACKAGES
+# install.packages("ggplot2") # remember to uncomment at first run - this needs to automated. R (base?) can do that.
 library(ggplot2)
 library(scales)
 library(plyr)
@@ -36,27 +36,27 @@ gear.list <-
 
 
 land.data$area <-
-  as.character(land.data$reg_area_cod) #removing horrble area column names
+  as.character(land.data$reg_area_cod) # removing horrble area column names
 land.data$gears <-
-  as.character(land.data$reg_gear_cod) #...and horrible gear column names
+  as.character(land.data$reg_gear_cod) # ...and horrible gear column names
 
-#tilføj lægnavn til land.data
+# tilføj lægnavn til land.data
 cname.apply <- c(species.name$common_name)
 names(cname.apply) <- c(species.name$species)
 land.data$cnames <- cname.apply[land.data$species]
 
-#tilføj videnskabeligt navn til land.data:
+# tilføj videnskabeligt navn til land.data:
 sname.apply <- c(species.name$scientific_name)
 names(sname.apply) <- c(species.name$species)
 land.data$snames <- sname.apply[land.data$species]
 
-#tilføj guild til land.data
+# tilføj guild til land.data
 guild.apply <- c(guildlist$feeding.guild)
 names(guild.apply) <- c(guildlist$scientific.name)
 land.data$guild <- guild.apply[land.data$snames]
 
-#correcting gears types;
-#translate gear data codes to gear type names 
+# correcting gears types;
+# translate gear data codes to gear type names 
 gname.apply <- c(gear.list$gear)
 names(gname.apply) <- c(gear.list$data.code)
 land.data$gears.t <- gname.apply[land.data$gears]
@@ -68,10 +68,10 @@ land.data$gears.t <- gname.apply[land.data$gears]
 
 
 
-#calculating percentages of effort:
-#first, get annual data (should be automated later)
+# calculating percentages of effort:
+# first, get annual data (should be automated later)
 
-#summarise landings species / area
+# summarise landings species / area
 
 # sum2003 = sum(X2003, na.rm = TRUE),
 # sum2004 = sum(X2004, na.rm = TRUE),
@@ -112,10 +112,10 @@ s.missing.guild <- ddply(missing.guild, "snames", summarise, "snames")
 
 
 ###################################################################################
-######## graph'd below is annual comparison of landings per guild and gears ########
+######## graph'd below is annual comparison of landings per guild and gears #######
 ###################################################################################
 
-#### barplot; landings per guild, summed subregions, no division:
+#--- barplot; landings per guild, summed subregions, no division:
 guild.sub.plot <-
   ggplot(data = land.data.m, aes(x = variable, y = value)) #adding data to plot
 # guild.sub.plot <- + facet_wrap(~variable)
@@ -133,10 +133,10 @@ guild.sub.plot <-
 guild.sub.plot #show the g'damn plot!
 
 
-#### barplot; landings per guild, all subregions, divided per subregion:
+#--- barplot; landings per guild, all subregions, divided per subregion:
 guild.sub.plotf <-
   ggplot(data = guild.area.melt, aes(x = variable, y = value)) #adding data to plot
-#guild2003_2013sub.plot <- guild2003_2013sub.plot +
+# guild2003_2013sub.plot <- guild2003_2013sub.plot +
 guild.sub.plotf <-
   guild.sub.plotf + geom_bar(
     stat = "identity", aes(fill = guild), colour =
@@ -152,9 +152,9 @@ guild.sub.plotf <-
   guild.sub.plotf + theme(axis.text.x = element_text(angle = 90))
 guild.sub.plotf #show the g'damn plot!
 
-############# graph'd below is annual comparison of landings per gear #############
+#----------- graph'd below is annual comparison of landings per gear #############
 
-#### barplot; landings per gear, summed subregions, no division:
+#--- barplot; landings per gear, summed subregions, no division:
 gear.sub.p <-
   ggplot(data = gear.area.m, aes(x = variable, y = value)) #adding data to plot
 gear.sub.p <-
@@ -170,7 +170,7 @@ gear.sub.p <-
   gear.sub.p + theme(axis.text.x = element_text(angle = 90))
 gear.sub.p #show the g'damn plot!
 
-#### barplot; landings per gear, all subregions, divided per subregion:
+#--- barplot; landings per gear, all subregions, divided per subregion:
 gear.sub.pf <-
   ggplot(data = gear.area.m, aes(x = variable, y = value)) #adding data to plot
 gear.sub.p <-
@@ -204,7 +204,7 @@ gear.sub.p #show the g'damn plot!
 ###########################################################################################
 ############# WARNING! EXPERIMENTAL PLOTS AHEAD - MAY NOT MAKE *ANY* SENSE! ###############
 ###########################################################################################
-################################ HERE BE DRAGONS ##########################################
+##################################### HERE BE DRAGONS #####################################
 ###########################################################################################
 
 # #### barplot; landings per species, summed subregions, no division:
