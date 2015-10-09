@@ -13,24 +13,24 @@ land.data <-
 
 effort.data <-
   read.delim(
-    "./rdata/effort_data-NORTHSEA.txt", header = TRUE, fill = TRUE, stringsAsFactors = FALSE, dec = "."
+    "./ices/effort_data-NORTHSEA.txt", header = TRUE, fill = TRUE, stringsAsFactors = FALSE, dec = "."
   )
 
 species.name <-
   read.delim(
-    "./rdata/3letterspecies_names.txt", header = TRUE, stringsAsFactors = FALSE
+    "./ices/3letterspecies_names.txt", header = TRUE, stringsAsFactors = FALSE
   ) # henter tabel over artsnavne og forkortelser af disse.
 # en liste over de forskellige arters guild/gruppe
 
 guildlist <-
   read.delim(
-    "./rdata/guilds3.txt", header = TRUE, sep = ",", stringsAsFactors = FALSE, fileEncoding = "UTF-8"
+    "./ices/guilds.txt", header = TRUE, sep = ",", stringsAsFactors = FALSE, fileEncoding = "UTF-8"
   )
 
 
 gear.list <-
   read.delim(
-    "./rdata/gear.list", header = TRUE, sep = ",", stringsAsFactors = FALSE, fileEncoding = "UTF-8"
+    "./ices/gear.list", header = TRUE, sep = ",", stringsAsFactors = FALSE, fileEncoding = "UTF-8"
   )
 
 
