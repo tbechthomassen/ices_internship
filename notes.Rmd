@@ -31,3 +31,5 @@ Asterixes indicate that a guild has been added to the list of feeding guilds in 
 The Almigthy R (praised be its name) is able to interpret raw text-data, without messing it up - just be careful what you write in your `read.delim() `.
 
 -- Fleet **capacity** is reported only for some countries, and in Gross Tonnage (GT), as opposed to kilowatts (kW). **Effort** is reported in kilowattdays (kWd).
+
+
