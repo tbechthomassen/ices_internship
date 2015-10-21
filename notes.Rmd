@@ -110,4 +110,8 @@ Code |	Country |	Ecoregion in sq. VIIe
  NED |  Netherlands  | 	North Sea
 
 
+### Missing data ###
+
+* Parts of the STECF fleet level economic dataset are missing. Specifically proper sub-region designations are missing for some data points, and have been left out of analysis. 53660 of 548578 data points with the supra region designation __"AREA27"__ have been left out due to missing (_NA_), improper (_0_) or incorrect (e.g. _"21.1.c"_) subregion designations.
+
 #References
