@@ -1,7 +1,7 @@
 #This line is a comment, and will not be read by R
 #This is a list of zone designations in the ICES area/FAO27, and can (hopefully) serve as a translation key
 #This line intentionally left blank.
-FAO.code,ecoregion,annex.code,subregion,
+FAO.code,ecoregion,annex.code,subregion,ecoreg.short
 27,ICES area,NA,
 27_1,Barents Sea,I,
 27_1_A,Barents Sea,Ia,,
