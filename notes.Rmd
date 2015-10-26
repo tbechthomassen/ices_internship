@@ -30,23 +30,48 @@ references:
   issued:
     year: 1996
     month: 6
+    
+- id: fao27hp
+  title: FAO Major Fishing Areas Northeast Atlantic (Major Fishing Area 27)
+  container-title: Fishieries \& Aquaculture Department
+  author:
+    - family: Fisheries \& Agriculture Organization of the United Nations
+  URL: 'http://www.fao.org/fishery/area/Area27/en'
+  type: webpage
+  issued:
+    year: 2015
+    month: 10
 ---
 
-## Notes for lists & keys ##
+# Notes for lists & keys #
 
-###Guildlist notes###
-
-Asterixes indicate that a guild has been added to the list of feeding guilds in the North Sea @greenstr96.
+## Guild assignment ##
+  
+### List of guilds ###
+  
+  __Feeding guilds__ are assigned the each species useing an external file (_"guilds.list"_). The list contains species names (common & scientific), feeding guild and size guild.
+  Feeding guilds have been assigned to each species based on the work done by @greenstr96.
+  Naturally, not all species present in fisheries data are included in that particualar piece of work, and have been added later using data from Fishbase.
+  
+  __Size guilds__ are based on Fishbase data, using the size-guilds suggested by _Kristin Klesner_, and choosing max adult length as the determining factor for size guild.
+  
+  
+### Reading the guild list ###
+  Asterixes indicate that a guild has been added to the list of feeding guilds in the North Sea [@greenstr96].
 
 * \* indicates a guild represented in the unedited guild list, but with a synomymous species name. These could easily be added to the synonymous guild
 
-* \*\* indicates a guild _not_ represented in the unedited guild list, and has been added manually, using data from [Fishbase](http://fishbase.se). 
+* \** indicates a guild _not_ represented in the unedited guild list, and has been added manually, using data from Fishbase. 
 
 ### Gear list ###
 
+The complete gear list have not been produced yet (26-10-2015). The gear list needs to collate the STECF gear designations from the Landings dataset and the Economic and Transversal dataset.
+
+A list of gears in the STECF Landings dataset exists, and is used to rename gears.
 
 ### Area key ###
 
+The area key is based on information from the STECF Economic & Transversal dataset annexes. Ecoregion designations are based on FAO-area designations found on the FAO webpage [@fao27hp.]
 
 # Data visualisation #
 
@@ -56,9 +81,12 @@ Asterixes indicate that a guild has been added to the list of feeding guilds in 
 
 * ddply is used to calculate percentages
 
-### Automation ###
+## Automation ##
 
-* Gear renaming; Gears needs to be grouped by actual gears, without restriction tags ("R-\*"), but without overwriting to original data
+###Gear renaming###
+Gears needs to be grouped by actual gear names, without restriction tags ("R-\*"), and without overwriting the original data. This is largely fixed by using the gear list; it can be used mostly to remove "restricted"-tags and grouping similar gears, with different names in different areas. However, if new gears are only present in the dataset, they will not be renamed properly, and most likely left out. 
+
+Also, gears are names differently in the Economic \& Transversal dataset, in which gears are grouped by function, more than gear type, e.g. "bottom scraping" rather than "otter trawl".
 
 * Catches needs to be summed by __year__, and grouped with __gears__ and __species__, in their respective __ecoregions__, and __sub-regions__. A solution may be to have R read column names, and act based on that.
 
@@ -89,7 +117,7 @@ Data in _Annex IIC_ has been split into NS and CS based on “country codes” (
 
 *	Gears may be grouped by different characteristics, e.g. target species (either target species(“cod”), or placement in water column(”demersal”)), catch methods (traps, trawls etc.), movement (active/passive), or simply general gear types (otter trawls, seines etc.), or combinations thereof (when that makes sense; an “active trap”, for example, would be a trawl). DCF gear metiers may also be useful, but are even more specific. Maybe a combination of level 4 & 5 (type & target species) is useful?
 
-*	There are too many species names to produce anything that is general for each region, while being descriptive. Maybe grouping species by feeding or size guilds, will simplify graphical and generalised data products. There may be a challenge in automating this. A key for assigning guilds to species, by species name, have been produced. (`./key-list/guild.list`)
+*	There are too many species names to produce anything that is general for each region, while still being descriptive. Maybe grouping species by feeding or size guilds, will simplify graphical and generalised data products. There may be a challenge in automating this. A key for assigning guilds to species, by species name, have been produced. (`./key-list/guild.list`)
 
 
 Code |	Country |	Ecoregion in sq. VIIe
