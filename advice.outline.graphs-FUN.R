@@ -1,4 +1,4 @@
- 
+
 # LOAD NEEDED LIBS+PACKAGAGES
 install.packages("ggplot2") #remember to uncomment at first run - this needs to be automated. R (base?) can do that.
 library(ggplot2)
@@ -69,7 +69,7 @@ guild.apply <- c(guild.list$feeding.guild)
 names(guild.apply) <- c(guild.list$scientific.name)
 ices27.df$feeding.guild <- guild.apply[ices27.df$sci.name]
 
-#-------- find species missing guild assignments --------
+#--------------- find species missing guild assignments  ---------------#
 
 # get number of unique missing species
 missing.guild <-
@@ -84,26 +84,30 @@ missing.count <- count(missing.guild.summary, vars = c("sci.name"))
 missingtop100 <- subset(missing.count, freq > 100, select = c("sci.name", "freq"))
 missingtop500 <- subset(missing.count, freq > 500, select = c("sci.name", "freq"))
 
-#-------- subset entire dataset to ecoregions ---------------#
 
-bal.df <- subset.data.frame(
-  ices27.df, ecoregion == "BAL", select = c(
-    "sub_reg","ecoregion", "country_name", "year", "variable_name", "value", "unit","gear_type", "species_name", "species_code", "sci.name", "feeding.guild"
+#--------------- subset entire dataset to ecoregions ---------------#
+subregions <- unique(ices27.df$ecoregion)
+
+regionSplit <-  function(subregion) {
+  for (s in subregion) {
+    s.df <- subset.data.frame(ices27.df, ecoregion == "s", select = c(
+      "sub_reg","ecoregion", "country_name", "year", "variable_name", "value", "unit","gear_type", "species_name", "species_code", "sci.name", "feeding.guild"
+      )
+    )
+  print(head(s.df))}
+}
+
+regionSplit(subregions)
+
+
+for (s in subregions) {
+  
+  s.df <- subset.data.frame(
+    ices27.df, ecoregion == s, select = c(
+      "sub_reg","ecoregion", "country_name", "year", "variable_name", "value", "unit","gear_type", "species_name", "species_code", "sci.name", "feeding.guild"
+    )
   )
-)
-
-ns.df <- subset.data.frame(
-  ices27.df, ecoregion == "NS", select = c(
-    "sub_reg","ecoregion", "country_name", "year", "variable_name", "value", "unit","gear_type", "species_name", "species_code", "sci.name", "feeding.guild"
-  )
-)
-
-cel.df <- subset.data.frame(
-  ices27.df, ecoregion == "CEL", select = c(
-    "sub_reg","ecoregion", "country_name", "year", "variable_name", "value", "unit","gear_type", "species_name", "species_code", "sci.name", "feeding.guild"
-  )
-)
-
+}
 # put a rm() snip here, when the whole data set is not needed anymore
 
 #--get effort, fishing hours
