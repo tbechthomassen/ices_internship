@@ -49,8 +49,6 @@ ices27.df <- subset.data.frame(
   )
 )
 
-ices27.df$value <- as.numeric(ices27.df$value)
-
 rm(econ.data.all)
 
 # report on the number of sub regions included in the subset:
@@ -140,7 +138,7 @@ blv <-
     bal.df, subset = c(variable_name == "Landings value" | variable_name == "Landings weight"), select = c("variable_name","value", "feeding.guild", "year"))
 
 c.blv <-
-  dcast(blv, year + feeding.guild ~ variable_name, sum, na.rm = TRUE)
+  dcast(bal.landings.value, year + feeding.guild ~ variable_name, sum, na.rm = TRUE)
 
 blvc <-
   subset.data.frame(
@@ -152,23 +150,90 @@ c.byc <-
 m.byc <-
   melt(c.byc, id.vars = c("feeding.guild", "variable_name", "country_name"), measure.vars = c("2008", "2009", "2010", "2011", "2012", "2013", "2014"))
 
-c.bc <-
-  dcast(blvc, country_name ~ year, sum, na.rm = TRUE)
+#### barplot; landings per guild, summed subregions, no division:
+p.lw <-
+  ggplot(data = c.blv, aes(x = as.factor(year), y = `Landings weight`)) #adding data to plot
+p.lw <-
+  p.lw + geom_bar(
+    stat = "identity", aes(fill = feeding.guild), colour =
+      "black", position = "dodge"
+  ) # adding bar-shape and colours + outlines
+# p.lw <- p.lw + facet_wrap(~area)
+p.lw <-
+  p.lw + xlab("Years") + ylab("Landings weight") #Add X- & Y-axis labels
+p.lw <-
+  p.lw + ggtitle("Landings weight per feeding guild, Baltics, 2008-2014") # setting the title
+p.lw <-
+  p.lw + theme(axis.text.x = element_text(angle = 90))
+p.lw #show the g'damn plot!
 
-m.bc <-
-  melt(c.bc, id.vars = c("country_name"), measure.vars = c("2008", "2009", "2010", "2011", "2012", "2013", "2014"))
+p.bec <-
+  ggplot(data = m.bec, aes(x = as.factor(variable), y = value)) #adding data to plot
+p.bec <-
+  p.bec + geom_bar(
+    stat = "identity", aes(fill = country_name), colour =
+      "black", position = "dodge"
+  ) # adding bar-shape and colours + outlines
+# p.bec <- p.bec + facet_wrap(~area)
+p.bec <-
+  p.bec + xlab("Years") + ylab("Effort (Hrs at sea)") #Add X- & Y-axis labels
+p.bec <-
+  p.bec + ggtitle("Effort (kWd) per country, Baltics, 2008-2014") # setting the title
+p.bec <-
+  p.bec + theme(axis.text.x = element_text(angle = 90))
+p.bec #show the g'damn plot!
+
+p.bhc <-
+  ggplot(data = m.bhc, aes(x = as.factor(variable), y = value)) #adding data to plot
+p.bhc <-
+  p.bhc + geom_bar(
+    stat = "identity", aes(fill = country_name), colour =
+      "black", position = "dodge"
+  ) # adding bar-shape and colours + outlines
+# p.bhc <- p.bhc + facet_wrap(~area)
+p.bhc <-
+  p.bhc + xlab("Years") + ylab("Effort (Hrs at sea)") #Add X- & Y-axis labels
+p.bhc <-
+  p.bhc + ggtitle("Effort (DAS) per country, Baltics, 2008-2014") # setting the title
+p.bhc <-
+  p.bhc + theme(axis.text.x = element_text(angle = 90))
+p.bhc #show the g'damn plot!
 
 
+p.lv.c <-
+  ggplot(data = m.byc, aes(x = as.factor(variable), y = value)) #adding data to plot
+p.lv.c <-
+  p.lv.c + geom_bar(
+    stat = "identity", aes(fill = country_name), colour =
+      "black", position = "dodge") # adding bar-shape and colours + outlines
+# p.lv.c <- p.lv.c + facet_wrap(~area)
+p.lv.c <-
+  p.lv.c + xlab("Years") + ylab("Landings Weight") #Add X- & Y-axis labels
+p.lv.c <-
+  p.lv.c + ggtitle("Landings weight per country, Baltics, 2008-2014") # setting the title
+p.lv.c <-
+  p.lv.c + theme(axis.text.x = element_text(angle = 90))
+p.lv.c #show the g'damn plot!
 
 #### barplot; landings per guild, summed subregions, no division:
+pm.lv.lw <-
+  ggplot(data = m.byc, aes(x = as.factor(variable), y = value)) #adding data to plot
+pm.lv.lw <-
+  pm.lv.lw + geom_bar(
+    stat = "identity", aes(fill = feeding.guild), colour =
+      "black", position = "dodge") # adding bar-shape and colours + outlines
+pm.lv.lw <- pm.lv.lw + facet_wrap(~variable_name)
+pm.lv.lw <-
+  pm.lv.lw + xlab("Years") + ylab("Value/Weight") #Add X- & Y-axis labels
+pm.lv.lw <-
+  pm.lv.lw + ggtitle("Landings weight and value per guild, Baltic, 2008-2014") # setting the title
+pm.lv.lw <-
+  pm.lv.lw + theme(axis.text.x = element_text(angle = 90))
+pm.lv.lw #show the g'damn plot!
 
 
-ggplot(na.omit(m.bc), aes(x = value, y = factor(variable) )) +
-  geom_point() +
-  xlab("Total Landings, metric tonnes") + ylab("Country") +
-  facet_wrap("country_name")
-  # theme(title = expression("New Hampshire Primary 2012")
-# theme_bw() + theme(axis.title.x = theme_text(size = 12, vjust = .25))+
+
+
 
 
 
