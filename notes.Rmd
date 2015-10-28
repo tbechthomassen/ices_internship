@@ -35,7 +35,7 @@ references:
   title: FAO Major Fishing Areas Northeast Atlantic (Major Fishing Area 27)
   container-title: Fishieries \& Aquaculture Department
   author:
-    - family: Fisheries \& Agriculture Organization of the United Nations
+    - family: Food \& Agriculture Organization of the United Nations
   URL: 'http://www.fao.org/fishery/area/Area27/en'
   type: webpage
   issued:
@@ -45,15 +45,17 @@ references:
 
 # Notes for lists & keys #
 
-## Guild assignment ##
+## (Re)assignment of guilds & gear- and area codes##
   
 ### List of guilds ###
   
-  __Feeding guilds__ are assigned the each species useing an external file (_"guilds.list"_). The list contains species names (common & scientific), feeding guild and size guild.
+  __Guilds__ are assigned the each species using an external file (_"guilds.list"_). The list contains species names (common & scientific), feeding guild and size guild.
   Feeding guilds have been assigned to each species based on the work done by @greenstr96.
   Naturally, not all species present in fisheries data are included in that particualar piece of work, and have been added later using data from Fishbase.
   
-  __Size guilds__ are based on Fishbase data, using the size-guilds suggested by _Kristin Klesner_, and choosing max adult length as the determining factor for size guild.
+  __Size guilds__ are based on Fishbase data, using the size-guilds suggested by _Kristin Kleisner_, and choosing max adult length as the determining factor for size guild.
+  
+   __Feeding guilds__ are based on Fishbase data, by combining info from the _Environment_- and _Biology_-sections. When behaviour change during the life histroy, feeding guilds are designated by the adult behaviour.
   
   
 ### Reading the guild list ###
@@ -71,7 +73,7 @@ A list of gears in the STECF Landings dataset exists, and is used to rename gear
 
 ### Area key ###
 
-The area key is based on information from the STECF Economic & Transversal dataset annexes. Ecoregion designations are based on FAO-area designations found on the FAO webpage [@fao27hp.]
+Ecoregion designations are based on FAO-area designations found on the FAO webpage [@fao27hp].
 
 # Data visualisation #
 
@@ -80,6 +82,8 @@ The area key is based on information from the STECF Economic & Transversal datas
 * Percentages for effort data is calculated in seperate datasets rather than upon load, as it is probably much easier to automate late on, should that become relevant.
 
 * ddply is used to calculate percentages
+
+* Instead of percentages, logarithmic scales should be used on the Y-axis. This will probably produce much clearer graphs.
 
 ## Automation ##
 
@@ -90,7 +94,7 @@ Also, gears are names differently in the Economic \& Transversal dataset, in whi
 
 * Catches needs to be summed by __year__, and grouped with __gears__ and __species__, in their respective __ecoregions__, and __sub-regions__. A solution may be to have R read column names, and act based on that.
 
-## General notes for data ##
+# General notes for data #
 
 * Column names can't start with numbers. Remember this; it will cause you trouble later, if you do not adhere by the Data Governing laws of the Almighty R.        
 The Almigthy R (praised be its name) is able to interpret raw text-data, without messing it up -- just be careful what you write in your `read.delim() `.
@@ -98,9 +102,9 @@ The Almigthy R (praised be its name) is able to interpret raw text-data, without
 * Fleet __capacity__ is reported only for some countries, and in _Gross Tonnage (GT)_, as opposed to kilowatts (kW). __Effort__ is reported in _kilowattdays (kWd)_.
 
 
-### Caveats for STECF data ###
+## Caveats for STECF data ##
 
-Caveats for fleet characterisations:
+###Caveats for fleet characterisations###
 
 *	Vessel length groups are not the same in the Baltic Sea as in other areas (13-18 m. group is problematic, however only constitutes 7 % of effort 2003-2013)
 *	Gear designations vary, especially in annex II, categories 3A-C are problematic, cat. 3A covers several gears
