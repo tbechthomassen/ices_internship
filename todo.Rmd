@@ -1,0 +1,35 @@
+---
+title: "todo"
+output: html_document
+---
+
+Last update: 2015-10-28
+
+## Lists & keys ##
+
+* Guildlist needs to be updated with missing guilds from STECF data 
+
+## Scripts ##
+
+### Missing functionality ###
+
+* STECF datagrabber
+    + Needs proper file saving-capabilities (R-binaries)
+    +
+* Fleet characterisation-scripts
+    +
+* Advice outline-scripts
+    + Missing structure, proper graphs
+* Capacity-scripts
+    + Get the correct capacity/effort-graphs
+
+### Missing automation ###
+
+* STECF datagrabber
+* Fleet characterisation-scripts
+* Advice outline-scripts
+* Capacity-scripts
+
+
+## Data ##
+
