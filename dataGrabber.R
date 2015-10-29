@@ -43,6 +43,9 @@ if (!dir.exists(cust.tmpd)) {
 # Load data #
 #############
 #
+
+#------------> Get STECF Effort & Landings data <------------
+
 effort.url <-
   "http://stecf.jrc.ec.europa.eu/documents/43805/870977/2014_STECF+14-20+-+Fishing+Effort+Regimes+data+tables.zip"
 effort.f <- "~/r/rdata/download/effort.zip"
@@ -67,6 +70,7 @@ if (!file.exists(effort.df.path)) {
   )
 }
 
+#------------> Get STECF Ecnomic & Transversal data <------------
 
 econ.url <-
   "http://stecf.jrc.ec.europa.eu/documents/43805/1034590/2015_STECF+15-07+-+EU+Fleet+Economic+data+tables.zip"
@@ -94,5 +98,30 @@ if (!file.exists(econ.df.path)) {
   )
 }
 
+#------------> Get ICES nominal landings data <------------
 
+ices.nominal.url <-
+  "http://www.ices.dk/marine-data/Documents/CatchStats/OfficialLandings.zip"
+ices.f <- "~/r/rdata/download/ices-nominal.data.zip"
+ices.df.path <- "~/r/rdata/ices-nominallandings.data"
 
+if (!file.exists(econ.df.path)) {
+  if (!file.exists(econ.f)) {
+    download.file(ices.nominal.url, destfile = ices.f, mode = "wb")
+  }
+  
+  unzip(ices.f, list = T)
+  ices.data <-
+    read.xlsx(
+      unzip(
+        ices.f, "ICESCatchDataset2006-2013.xlsx"
+      ),
+      sheet = 2
+    )
+  
+  head(ices.data)
+  
+  write.table(
+    ices.data, ices.df.path, sep = "\t", quote = FALSE, row.names = FALSE
+  )
+}
