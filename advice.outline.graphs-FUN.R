@@ -14,11 +14,11 @@ library(plyr)
 library(reshape2)
 library(foreach)
 # library(data.table)
-#------------|  
+#------------||  
 
 #------------> Build functions <----------
 
-#------------|
+#------------||
 
 #------------> Load data <----------
 econ.data.all <-
@@ -46,18 +46,68 @@ species.list <-
     "~/r/ices/keys-lists/species.list", header = TRUE, stringsAsFactors = FALSE
   )
 
-#------------> 
+#------------||
+
+#------------> Subset data <----------
+
+# 1- add ecoregion designations, or maybe just subset to 27_7. This should work fine.
+
+# 2- subset data to CEL
+# 2a- BE AWARE of ICES ds aggregation rules. For CEL, select only data in region "27_7", to avoid duplication of data.
+
+# 3- remove general dataset
+
+#-------> Fig 2: STECF, effort (kWd)/country
+
+# 1- 
+
+#----|
+
+#-------> Fig 3: ICES, top 3 guilds + rest as one group
+
+# 1- add guild data
+
+# 2- subset data to include guilds and landingsdata
+
+# 3- reorganise to top3 + rest colnames: "species", 
+
+## code idea:
+# top3 <- GuildSummary[, [1:3]]
+# others <- GuildSummary[, [4:length(GuildSummary)]]
+
+#----|
+
+#-------> Fig 4: top 3-5 species per guild (facet'd by guild)
+
+#----|
+
+#-------> Fig 5:
+
+#----|
+
+#------------||
+
+#------------> Build graphs <----------
+#
+#
+# 
+#------------|| 
 
 
 #------------> Execute functions <----------
 
-# create nice functions that iterate over at list of the ecoregions, and create datasets for the graphs, for each ecoregion
+# create nice functions that iterate over a list of the ecoregions, seperate to ecoregions
+## 1- get list of ecoregions
+## 2- subset whole dataset to subregions (modify code above)
+
+# then create datasets for the graphs, for each ecoregion
+## 1- get the relevant data for each graph
+## 2- iterate over list for each ecoregion
+##(use code above)
 
 # then create nice functions that iterate over the ecoregion-list, and builds the graphs for each ecoregion.
+## 1- design graphs, based on datasets
+## 2- do this for each ecoregion-dataset
+##
 
-#------------> 
-
-
-#------------> Build graphs <----------
-
-#------------> 
+#------------||
