@@ -13,15 +13,17 @@ Last update: 2015-10-28
 
 ### Missing functionality ###
 
-* STECF datagrabber
+1. Advice outline-scripts
+    + data selection
+        + start with CEL data
+    + graphs
+2. STECF datagrabber
     + Needs proper file saving-capabilities (R-binaries)
     +
-* Fleet characterisation-scripts
-    +
-* Advice outline-scripts
-    + Missing structure, proper graphs
-* Capacity-scripts
+3. Capacity-scripts
     + Get the correct capacity/effort-graphs
+4. Fleet characterisation-scripts
+    +
 
 ### Missing automation ###
 
