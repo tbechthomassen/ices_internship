@@ -30,8 +30,8 @@ R scripts have been commented, thus this document does not provide extensive doc
 |   keys-lists/__stecf-fishingtech.list__	|   A shorter version of the gear list, including only fishing tech codes, long name and towed/static designation	|
 |   ices/__dataGrabber.R__	|   A script that gets data from ICES official catches,  STECF Economic & Transversal, and STECF Landings databases. Also checks for directories to put the downloaded data in, and creates them if necessary. Datagrab does not occur if data has already been downloaded (i.e. a file with similar name exists)	|
 |  fleet-characterisation/__capacity.graphs.R__ 	|  A script to produce graphs for characterising the ICES ecoregions in terms of fishing capacity, catches(species, guilds) and catch value. This file should probably be split into several scripts, doing only one thing, which can then be sourced from another script. 	|
-|   	|   	|
-|   	|   	|
-|   	|   	|
+|   fleet-characterisation/__catch-graphs.R__	|   Produces graphs of STECF data on catches. An early script. Unelegant, needs to be rewritten. |
+|   fleet-characterisation/__landings.graphs.R__	|  Produces graphs of STECF data on landings. An early script. Unelegant, needs to be rewritten. 	|
+|   fleet-characterisation/__notes.Rmd__	|   The accumulated notes on work done for Mark DC and ICES August 3rd -- December 2nd 2015	|
 |   	|   	|
 |   	|   	|
