@@ -23,12 +23,18 @@ library(openxlsx)
 # Define dirs #
 ###############
 
-cust.tmpd <-
-  "~/r/rdata/download" # define where the zipped data files are placed
+dataPath    <- "~/data"
+outPath     <- "~/output"
+codePath    <- "~/code"
+downloadPath <- "~/data/download"
 
-# check if dir for temp files exists, if not create it:
-if (!dir.exists(cust.tmpd)) {
-  dir.create(cust.tmpd, recursive = TRUE)
+pathList <- as.list(c(dataPath, outPath, codePath, downloadPath))
+
+for (p in pathList) {
+  if (!dir.exists(p)) {
+    dir.create(p, recursive = TRUE)
+  }
+  
 }
 
 
@@ -48,8 +54,8 @@ if (!dir.exists(cust.tmpd)) {
 
 effort.url <-
   "http://stecf.jrc.ec.europa.eu/documents/43805/870977/2014_STECF+14-20+-+Fishing+Effort+Regimes+data+tables.zip"
-effort.f <- "~/r/rdata/download/effort.zip"
-effort.df.path <- "~/r/rdata/stecf-landings.by.ICES.rectangle"
+effort.f <- "~/data/download/effort.zip"
+effort.df.path <- "~/data/stecf-landings.by.ICES.rectangle"
 
 if (!file.exists(effort.df.path)) {
   if (!file.exists(effort.f)) {
@@ -66,7 +72,7 @@ if (!file.exists(effort.df.path)) {
     )
   head(effort.data)
   write.table(
-    effort.data, effort.df.path, sep = "\t", quote = FALSE, row.names = FALSE
+    effort.data, effort.df.path, sep = ",", dec=".", quote = FALSE, row.names = FALSE
   )
 }
 
@@ -94,7 +100,7 @@ if (!file.exists(econ.df.path)) {
   head(econ.data)
   
   write.table(
-    econ.data, econ.df.path, sep = "\t", quote = FALSE, row.names = FALSE
+    econ.data, econ.df.path, sep = ",", dec=".", quote = FALSE, row.names = FALSE
   )
 }
 
@@ -102,8 +108,8 @@ if (!file.exists(econ.df.path)) {
 
 ices.nominal.url <-
   "http://www.ices.dk/marine-data/Documents/CatchStats/OfficialLandings.zip"
-ices.f <- "~/r/rdata/download/ices-nominal.data.zip"
-ices.df.path <- "~/r/rdata/ices-nominallandings.data"
+ices.f <- "~/data/download/ices-nominal.data.zip"
+ices.df.path <- "~/data/ices-nominallandings.data"
 
 if (!file.exists(econ.df.path)) {
   if (!file.exists(econ.f)) {
@@ -122,6 +128,6 @@ if (!file.exists(econ.df.path)) {
   head(ices.data)
   
   write.table(
-    ices.data, ices.df.path, sep = "\t", quote = FALSE, row.names = FALSE
+    ices.data, ices.df.path, sep = ",", dec=".", quote = FALSE, row.names = FALSE
   )
 }

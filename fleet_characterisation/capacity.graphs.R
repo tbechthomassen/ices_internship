@@ -1,6 +1,20 @@
- 
-# LOAD NEEDED LIBS+PACKAGAGES
-install.packages("ggplot2") #remember to uncomment at first run - this needs to be automated. R (base?) can do that.
+###################################  
+#                                 
+#- Fleet characterisation graphs
+#
+#- Author: Thomas Bech-thomassen
+#- Purpose: Part of multiple scripts to provide an overview of fisheries fleets in the individual ICES ecoregions
+##################################
+
+#- LOAD NEEDED LIBS+PACKAGAGES
+
+needList <- c("ggplot2", "plyr", "reshape2")
+new.packages <-
+  needList[!(needList %in% installed.packages()[,"Package"])]
+if (length(new.packages)) {
+  install.packages(new.packages)
+}
+
 library(ggplot2)
 library(scales)
 library(plyr)
@@ -10,17 +24,17 @@ library(foreach)
 
 econ.data.all <-
   read.delim(
-    "~/r/rdata/stecf-economic-fleet.data", header = TRUE, fill = TRUE, stringsAsFactors = FALSE, dec = "."
+    "~/data/stecf-economic-fleet.data", header = TRUE, fill = TRUE, stringsAsFactors = FALSE, dec = "."
   ) # get economic data from STECF dataset
 as.numeric(econ.data.all$value)
 gear.list <-
   read.delim(
-    "~/r/ices/gear.list", header = TRUE, sep = ",", stringsAsFactors = FALSE, fileEncoding = "UTF-8"
+    "~/datagear.list", header = TRUE, sep = ",", stringsAsFactors = FALSE, fileEncoding = "UTF-8"
   )
-mel
+
 reg.list <-
   read.delim(
-    "~/r/ices/keys-lists/ices.regions.list", header = TRUE, sep = ",", stringsAsFactors = FALSE, fileEncoding = "UTF-8"
+    "~/keys-lists/ices.regions.list", header = TRUE, sep = ",", stringsAsFactors = FALSE, fileEncoding = "UTF-8"
   )
 
 guild.list <-
