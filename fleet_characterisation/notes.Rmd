@@ -1,13 +1,9 @@
 ---
 title: "Notes for work done August 3rd - December 2nd 2015"
 author: "Thomas Bech-Thomassen"
-output: 
-  pdf_document: 
-    latex_engine: xelatex
-    
 references:
-- id: greenstr96
-  title: Seasonal variation in the consumption of food by fish in the North Sea and implications for food web dynamics
+- DOI: 10.1006/jmsc.1996.0183
+  URL: dx.doi.org/10.1006%2Fjmsc.1996.0183
   author:
   - family: Greenstreet
     given: Simon P. R.
@@ -20,109 +16,104 @@ references:
   - family: Heath
     given: Mike R.
   container-title: ICES Journal of Marine Science
-  volume: 54
-  URL: 'dx.doi.org/10.1006%2Fjmsc.1996.0183'
-  DOI: 10.1006/jmsc.1996.0183
+  id: greenstr96
   issue: 2
-  publisher: Nature Publishing Group
-  page: 243-266
-  type: article-journal
   issued:
-    year: 1996
     month: 6
-    
-- id: fao27hp
-  title: FAO Major Fishing Areas Northeast Atlantic (Major Fishing Area 27)
-  container-title: Fishieries \& Aquaculture Department
+    year: 1996
+  page: 243-266
+  publisher: Nature Publishing Group
+  title: Seasonal variation in the consumption of food by fish in the North Sea and
+    implications for food web dynamics
+  type: article-journal
+  volume: 54
+- URL: http://www.fao.org/fishery/area/Area27/en
   author:
-    - family: Food \& Agriculture Organization of the United Nations
-  URL: 'http://www.fao.org/fishery/area/Area27/en'
-  type: webpage
+  - family: Food \& Agriculture Organization of the United Nations
+  container-title: Fisheries \& Aquaculture Department
+  id: fao27hp
   issued:
-    year: 2015
     month: 10
+    year: 2015
+  title: FAO Major Fishing Areas Northeast Atlantic (Major Fishing Area 27)
+  type: webpage
+output:
+  pdf_document:
+    fig_caption: yes
+    latex_engine: xelatex
+  word_document: default
 ---
 
-# Notes for lists & keys #
+# Notes on use of STECF data #
 
-## (Re)assignment of guilds & gear- and area codes##
+Data should be obtained using the dataGrabber, which will download, unzip and write data directly from the STECF data repositiories to csv-files, which are easily loaded into __R__.
+
+Another option is to download data manually from the STECF online [data dissemination website](https://datacollection.jrc.ec.europa.eu/data-dissemination). However, this is a cumbersome method, and data will be split in data annexes, which are not necessarily equivalent to ecoregions.
+
+## Notes for lists & keys ##
+
+### About keys \& lists ###
+
+A number of csv-files which can serve as lookup tables when assigning guilds, grouping gears, or translating FAO species codes to scientific- and common species names.
+
+## (Re)assignment of guilds, gear- and area codes ##
   
-### List of guilds ###
-  
-  __Guilds__ are assigned the each species using an external file (_"guilds.list"_). The list contains species names (common & scientific), feeding guild and size guild.
+##### Guilds #####
+are assigned the each species using an external file (_"guilds.list"_), which serves as a lookup table. The list contains species names (common & scientific), feeding guild and size guild.
   Feeding guilds have been assigned to each species based on the work done by @greenstr96.
-  Naturally, not all species present in fisheries data are included in that particualar piece of work, and have been added later using data from Fishbase.
+  Naturally, not all species present in fisheries data are included in that particualar piece of work, as it concentrates on the North Sea, and have been added later using data from Fishbase. 
+
+Asterixes indicate that a guild has been added to the list of feeding guilds in the North Sea [@greenstr96].
+
+  - __\*__ indicates a guild represented in the unedited guild list, but with an outdated or synomymous species name. These can easily be added to the list.
+
+  - __\*\*__ indicates a guild _not_ represented in the unedited guild list, added using data from Fishbase. 
   
-  __Size guilds__ are based on Fishbase data, using the size-guilds suggested by _Kristin Kleisner_, and choosing max adult length as the determining factor for size guild.
+##### Size guilds #####
+are based on Fishbase data, using the size-guilds suggested by _Kristin Kleisner_ (which are also used by Fishbase), and choosing max adult length as the determining factor for size guild.
   
-   __Feeding guilds__ are based on Fishbase data, by combining info from the _Environment_- and _Biology_-sections. When behaviour change during the life histroy, feeding guilds are designated by the adult behaviour.
-  
-  
-### Reading the guild list ###
-  Asterixes indicate that a guild has been added to the list of feeding guilds in the North Sea [@greenstr96].
+#####Feeding (trophic) guilds #####
+are based on Fishbase data, by combining info from the _Environment_- and _Biology_-sections. When feeding behaviour change during the life histroy, feeding guilds are designated by the adult behaviour. 
 
-* \* indicates a guild represented in the unedited guild list, but with a synomymous species name. These could easily be added to the synonymous guild
+### Gear lists ###
 
-* \** indicates a guild _not_ represented in the unedited guild list, and has been added manually, using data from Fishbase. 
+Multiple lists of gears exist int he _keys-lists_-folder:
 
-### Gear list ###
+* _stecf-gear.list_ is based on the STECF Landings data, and can be used as a lookup table for renaming and grouping gears by type, as discussed later.
+* _stecf-geartech.list_ is a collated list of information about gears, their code, class (e.g. "Dredges"), description (e.g."Boat dredges"), fishing technology-code (e.g. "DRB"), type (e.g. "Dredges"), vessel description (e.g. "Dredgers") and whether the gear is towed or static.
 
-The complete gear list have not been produced yet (26-10-2015). The gear list needs to collate the STECF gear designations from the Landings dataset and the Economic and Transversal dataset.
+It is difficult to produce _one_ complete gear list, as gear designations change between the Landings dataset and the Economic and Transversal dataset. Some gears are missing the "tech"-designation which has not been provided by the STECF.
 
-A list of gears in the STECF Landings dataset exists, and is used to rename gears.
+###Gear renaming###
+In the STECF Landings data, gears needs to be grouped by actual gear names, without restriction tags ("R-\*"), and without overwriting the original data. This is largely fixed by using the gear list (_gear.list_); it can be used to remove "restricted"-tags and grouping similar gears, with different names in different areas. However, if new gears are only present in the dataset, they will not be renamed properly, and most likely left out. 
+
+Also, gears are named differently in the Economic \& Transversal dataset, in which gears are grouped by function, more than gear type, e.g. "bottom scraping" rather than "dredge".
 
 ### Area key ###
 
-Ecoregion designations are based on FAO-area designations found on the FAO webpage [@fao27hp].
-
-# Data visualisation #
-
-## Graphs ##
-
-* Percentages for effort data is calculated in seperate datasets rather than upon load, as it is probably much easier to automate late on, should that become relevant.
-
-* ddply is used to calculate percentages
-
-* Instead of percentages, logarithmic scales should be used on the Y-axis. This will probably produce much clearer graphs.
-
-## Automation ##
-
-###Gear renaming###
-Gears needs to be grouped by actual gear names, without restriction tags ("R-\*"), and without overwriting the original data. This is largely fixed by using the gear list; it can be used mostly to remove "restricted"-tags and grouping similar gears, with different names in different areas. However, if new gears are only present in the dataset, they will not be renamed properly, and most likely left out. 
-
-Also, gears are names differently in the Economic \& Transversal dataset, in which gears are grouped by function, more than gear type, e.g. "bottom scraping" rather than "otter trawl".
-
-* Catches needs to be summed by __year__, and grouped with __gears__ and __species__, in their respective __ecoregions__, and __sub-regions__. A solution may be to have R read column names, and act based on that.
-
-# General notes for data #
-
-* Column names can't start with numbers. Remember this; it will cause you trouble later, if you do not adhere by the Data Governing laws of the Almighty R.        
-The Almigthy R (praised be its name) is able to interpret raw text-data, without messing it up -- just be careful what you write in your `read.delim() `.
-
-* Fleet __capacity__ is reported only for some countries, and in _Gross Tonnage (GT)_, as opposed to kilowatts (kW). __Effort__ is reported in _kilowattdays (kWd)_.
+Ecoregion designations are based on FAO-area designations found on the FAO webpage [@fao27hp]. A list of C-squares in each ecoregion exists, but is hardly human-readable.
 
 
-## Caveats for STECF data ##
 
-###Caveats for fleet characterisations###
+## Fleet characterisations##
 
-*	Vessel length groups are not the same in the Baltic Sea as in other areas (13-18 m. group is problematic, however only constitutes 7 % of effort 2003-2013)
-*	Gear designations vary, especially in annex II, categories 3A-C are problematic, cat. 3A covers several gears
+These notes cover working with the _STECF Landings by ICES Rectangle_-dataset
+
+*	Vessel length groups are not the same in the Baltic Sea as in other areas. Especially 13-18 m. group is problematic, as it is not compatible with the >10, 10-15, 15<-convention, however only constitutes 7 % of effort 2003-2013.
+*	Gear designations vary. Categories 3A-C are problematic, cat. 3A covers several gears
 *	Data about gear use in the North Sea are lacking, as no info is provided for 14 % of effort (2003-2014)
-*	Data about vessel length is missing for 54 % of vessels in IIB (IIB is not used in the preliminary characterisation, as it contains data for Iberian peninsula only)
-*	Data is not divided into ICES squares & ecoregions, which makes proper characterisation of each region difficult, e.g. sq. VIIe which contains data from Celtic Seas and NS
-
-
-Data in _Annex IIC_ has been split into NS and CS based on “country codes” (see Table 1)
-
+*	Vessel length data is missing for 54 % of vessels in Bay of Biscay-data (Annex IIB). However, BOB/IIB is not used in the preliminary characterisation, as it contains data for Iberian peninsula only
+*	Data is not divided into ICES rectangles and ecoregions, which makes proper characterisation of each region difficult, e.g. area VIIe which contains data from Celtic Seas and NS.
+* Fleet __capacity__ is reported only for some countries, and in _Gross Tonnage (GT)_, as opposed to kilowatts (kW). __Effort__ is reported in _kilowattdays (kWd)_. 
+* Catches needs to be summed by __year__, and grouped with __gears__ and __species__, in their respective __ecoregions__, and __sub-regions__. It would be nice to be able to produce all the output based on the ecoregions listed in the dataset.
 *	Actual vessel numbers are difficult if not impossible to determine, as data only contains summarised vessel data. “Vessel numbers” are actually a measure of how many vessels have been part of a certain activity, i.e. fishing with pelagic trawls in an area for a given year. This means that vessel numbers are grossly overestimated, and “vessel numbers” is more than anything a measure of vessel visitations to a given area.
 
-*	There are (too) many gear types, and some of the categories are overlapping. It may be advisable to summarise some of the categories, as the fleet characteristics are not meant to be advice, but to give an idea of how fish are caught, and as such information about restricted gears are not of immediate interest. The type of restricted gear is, however, and usually the general type of gear (e.g. “otter trawl”) is present in the datasets in much greater proportions, thus specific and  restricted gear designations can easily be included in more general categories without skewing the data too much. However, consolidating the gear types may give a clearer picture of the composition of the fleets.
+*	There are too many gear types, and some of the categories are overlapping. It may be advisable to summarise some of the categories. As such information about restricted gears are not of immediate interest, so they have been removed in the output so far. The type of restricted gear is, however, and usually the general type of gear (e.g. “otter trawl”) is present in the datasets in much greater proportions, thus specific and  restricted gear designations can easily be included in more general categories without skewing the data too much. However, consolidating the gear types may give a clearer picture of the composition of the fleets. 
 
-*	Gears may be grouped by different characteristics, e.g. target species (either target species(“cod”), or placement in water column(”demersal”)), catch methods (traps, trawls etc.), movement (active/passive), or simply general gear types (otter trawls, seines etc.), or combinations thereof (when that makes sense; an “active trap”, for example, would be a trawl). DCF gear metiers may also be useful, but are even more specific. Maybe a combination of level 4 & 5 (type & target species) is useful?
+*	There are too many species names to produce anything that is general for each region, while still being descriptive. Grouping species by feeding or size guilds, will simplify graphical and generalised data products. There may be a challenge in automating this. A key for assigning guilds to species, by species name, have been produced. (`/keys-lists/guild.list`).
 
-*	There are too many species names to produce anything that is general for each region, while still being descriptive. Maybe grouping species by feeding or size guilds, will simplify graphical and generalised data products. There may be a challenge in automating this. A key for assigning guilds to species, by species name, have been produced. (`./key-list/guild.list`)
-
+#####Table 1:#####
+_Suggested division of sq. VIIe to Bay of Biscay and Celtic Seas ecoregions._
 
 Code |	Country |	Ecoregion in sq. VIIe
 -----|----------|----------------------
@@ -144,6 +135,6 @@ Code |	Country |	Ecoregion in sq. VIIe
 
 ### Missing data ###
 
-* Parts of the STECF fleet level economic dataset are missing. Specifically proper sub-region designations are missing for some data points, and have been left out of analysis. 53660 of 548578 data points with the supra region designation __"AREA27"__ have been left out due to missing (_NA_), improper (_0_) or incorrect (e.g. _"21.1.c"_) subregion designations.
+* Parts of the _STECF Fleet Level Economic_ dataset are missing. Specifically proper sub-region designations are missing for some data points, and have been left out of analysis. 53660 of 548578 data points with the supra region designation __"AREA27"__ have been left out due to missing (_"NA"_), improper (_"0"_) or incorrect (e.g. _"21.1.c"_) subregion designations (21.1.1c is an area in FAO area 21).
 
 #References

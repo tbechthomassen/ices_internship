@@ -1,0 +1,36 @@
+code,description,gear_class,fishing_tech,type,vessel_description,towed_static
+DRB,Boat dredges,DREDGES,DRB,DREDGES,Dredgers,Towed
+DRH,Hand dredges,DREDGES,DRB,DREDGES,Dredgers,Towed
+FPN,Stationary uncovered pound nets,TRAPS,FPO,TRAPS,Vessels using pots and-or traps,Static
+FPO,Pots,TRAPS,FPO,POTS,Vessels using pots and-or traps,Static
+FYK,Fyke nets,TRAPS,FPO,TRAPS,Vessels using pots and-or traps,Static
+GNC,Encircling gillnets,GILLNETS AND ENTANGLING NETS,DFN,NETS,Drift and-or fixed netters,Static
+GND,Driftnets,GILLNETS AND ENTANGLING NETS,DFN,NETS,Drift and-or fixed netters,Static
+GNS,Set gillnets (anchored),GILLNETS AND ENTANGLING NETS,DFN,NETS,Drift and-or fixed netters,Static
+GTN,Combined gillnets-trammel nets,GILLNETS AND ENTANGLING NETS,DFN,NETS,Drift and-or fixed netters,Static
+GTR,Trammel nets,GILLNETS AND ENTANGLING NETS,DFN,NETS,Drift and-or fixed netters,Static
+HAR,Harpoons,HARPOONS,,HARPOONS,,
+HMD,Mechanised dredges including suction dredges,DREDGES,DRB,DREDGES,Dredgers,Towed
+LA,Lampara nets,SURROUNDING NETS,PS,SEINE,Purse seiners,Towed
+LHM,Handlines and pole-lines (mechanised),HOOKS AND LINES,HOK,HOOKS AND LINES,Vessels using hooks,Static
+LHP,Handlines and pole-lines (hand-operated),HOOKS AND LINES,HOK,HOOKS AND LINES,Vessels using hooks,Static
+LLD,Drifting longlines,HOOKS AND LINES,HOK,HOOKS AND LINES,Vessels using hooks,Static
+LLS,Set longlines,HOOKS AND LINES,HOK,HOOKS AND LINES,Vessels using hooks,Static
+LNB,Boat-operated lift nets,LIFT NETS,DFN,NETS,Drift and-or fixed netters,Static
+LNS,Shore-operated stationary lift nets,LIFT NETS,DFN,NETS,,
+LTL,Troll lines,HOOKS AND LINES,HOK,HOOKS AND LINES,Vessels using hooks,Static
+MIS,Miscellaneous Gear,MISC GEAR,,OTHER,,
+NK,,GEAR NOT KNOW OR NOT SPECIFIED ,,UNSPECIFIED,,
+NO,,No gear,,NONE,,
+OTB,Bottom otter trawl,TRAWLS,DTS,OTTER TRAWL,Demersal trawlers and-or demersal seiners,Towed
+OTM,Midwater otter trawl,TRAWLS,DTS_or_TM,PELAGIC TRAWL,,
+OTT,Otter twin trawl,TRAWLS,TM,OTTER TRAWL,Pelagic trawlers,Towed
+PS,Purse seines,SURROUNDING NETS,PS,SEINE,Purse seiners,Towed
+PTB,Bottom pair trawl,TRAWLS,DTS,PAIR TRAWL,Demersal trawlers and-or demersal seiners,Towed
+PTM,Pelagic pair trawl,TRAWLS,TM,PELAGIC TRAWL,Pelagic trawlers,Towed
+SB,Beach seines,SEINE NETS,DTS,SEINE,Demersal trawlers and-or demersal seiners,Towed
+SDN,Danish seines,SEINE NETS,DTS,SEINE,Demersal trawlers and-or demersal seiners,Towed
+SPR,Pair seines,SEINE NETS,DTS,SEINE,Demersal trawlers and-or demersal seiners,Towed
+SSC,Scottish seines,SEINE NETS,DTS,SEINE,Demersal trawlers and-or demersal seiners,Towed
+SV,Beach and boat seine,,,SEINE,,
+TBB,Beam trawl,TRAWLS,TBB,BEAM TRAWL,Beam trawlers,Towed
