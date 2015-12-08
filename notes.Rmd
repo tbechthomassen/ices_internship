@@ -54,8 +54,9 @@ references:
   Naturally, not all species present in fisheries data are included in that particualar piece of work, and have been added later using data from Fishbase.
   
   __Size guilds__ are based on Fishbase data, using the size-guilds suggested by _Kristin Kleisner_, and choosing max adult length as the determining factor for size guild.
+  Max adult length was chosen rather than typical length (which is also supplied on the Fishbase website), as max length is supposedly less subject to change, and provides info about the potential size of each species, which in turn provides info about the impact of removing individuals from the ecosystem.
   
-   __Feeding guilds__ are based on Fishbase data, by combining info from the _Environment_- and _Biology_-sections. When behaviour change during the life histroy, feeding guilds are designated by the adult behaviour.
+  __Feeding guilds__ are based on Fishbase data, by combining info from the _Environment_- and _Biology_-sections. When behaviour change during the life histroy, feeding guilds are designated by the adult behaviour.
   
   
 ### Reading the guild list ###
@@ -63,7 +64,7 @@ references:
 
 * \* indicates a guild represented in the unedited guild list, but with a synomymous species name. These could easily be added to the synonymous guild
 
-* \** indicates a guild _not_ represented in the unedited guild list, and has been added manually, using data from Fishbase. 
+* \** indicates a species _not_ represented in the unedited guild list, and has been added manually, using data from Fishbase. 
 
 ### Gear list ###
 
@@ -87,7 +88,7 @@ Ecoregion designations are based on FAO-area designations found on the FAO webpa
 
 ## Automation ##
 
-###Gear renaming###
+### Gear renaming ###
 Gears needs to be grouped by actual gear names, without restriction tags ("R-\*"), and without overwriting the original data. This is largely fixed by using the gear list; it can be used mostly to remove "restricted"-tags and grouping similar gears, with different names in different areas. However, if new gears are only present in the dataset, they will not be renamed properly, and most likely left out. 
 
 Also, gears are names differently in the Economic \& Transversal dataset, in which gears are grouped by function, more than gear type, e.g. "bottom scraping" rather than "otter trawl".
@@ -95,9 +96,6 @@ Also, gears are names differently in the Economic \& Transversal dataset, in whi
 * Catches needs to be summed by __year__, and grouped with __gears__ and __species__, in their respective __ecoregions__, and __sub-regions__. A solution may be to have R read column names, and act based on that.
 
 # General notes for data #
-
-* Column names can't start with numbers. Remember this; it will cause you trouble later, if you do not adhere by the Data Governing laws of the Almighty R.        
-The Almigthy R (praised be its name) is able to interpret raw text-data, without messing it up -- just be careful what you write in your `read.delim() `.
 
 * Fleet __capacity__ is reported only for some countries, and in _Gross Tonnage (GT)_, as opposed to kilowatts (kW). __Effort__ is reported in _kilowattdays (kWd)_.
 
